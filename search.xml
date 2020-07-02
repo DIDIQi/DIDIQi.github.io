@@ -53,17 +53,6 @@
     
     
     <entry>
-      <title>photoes</title>
-      <link href="/photoes/index.html"/>
-      <url>/photoes/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>comment</title>
       <link href="/comment/index.html"/>
       <url>/comment/index.html</url>
@@ -75,9 +64,9 @@
     
     
     <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>photoes</title>
+      <link href="/photoes/index.html"/>
+      <url>/photoes/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -89,6 +78,17 @@
       <title>statis</title>
       <link href="/statis/index.html"/>
       <url>/statis/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
