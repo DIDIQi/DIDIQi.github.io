@@ -1,169 +1,520 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DIDIQi</title><meta name="description" content="Never forget why you started."><meta name="keywords" content="algorithm,算法,web,建站,hexo,cv,ai,springboot"><meta name="author" content="Blue Dam"><meta name="copyright" content="Blue Dam"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="https://wx2.sbimg.cn/2020/07/02/2ZpV8.png"><link rel="canonical" href="https://wwww.cyberboy.online/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//ta.qq.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="DIDIQi"><meta property="og:url" content="https://wwww.cyberboy.online/"><meta property="og:site_name" content="DIDIQi"><meta property="og:description" content="Never forget why you started."><meta property="og:image" content="https://wx2.sbimg.cn/2020/07/02/2Z4no.md.png"><meta property="article:published_time" content="2020-07-04T06:13:51.529Z"><meta property="article:modified_time" content="2020-07-04T06:13:51.529Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
-  }
-}
-var activateLightMode = function () {
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
-  }
-}
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
 
-var getCookies = function (name) {
-  const value = `; ${document.cookie}`
-  const parts = value.split(`; ${name}=`)
-  if (parts.length === 2) return parts.pop().split(';').shift()
-}
-
-var autoChangeMode = 'false'
-var t = getCookies('theme')
-if (autoChangeMode === '1') {
-  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-  if (t === undefined) {
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport) {
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour <= 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
-    }
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-      if (Cookies.get('theme') === undefined) {
-        e.matches ? activateDarkMode() : activateLightMode()
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DIDIQi</title>
+  <meta name="description" content="Never forget why you started.">
+  <meta name="keywords" content="algorithm,算法,web,建站,hexo,cv,ai,springboot">
+  <meta name="author" content="Blue Dam">
+  <meta name="copyright" content="Blue Dam">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="shortcut icon" href="https://wx2.sbimg.cn/2020/07/02/2ZpV8.png">
+  <link rel="canonical" href="https://wwww.cyberboy.online/">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <link rel="preconnect" href="//cdn.jsdelivr.net" />
+  <link rel="preconnect" href="//ta.qq.com" />
+  <link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin" />
+  <link rel="preconnect" href="//busuanzi.ibruce.info" />
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DIDIQi">
+  <meta property="og:url" content="https://wwww.cyberboy.online/">
+  <meta property="og:site_name" content="DIDIQi">
+  <meta property="og:description" content="Never forget why you started.">
+  <meta property="og:image" content="https://wx2.sbimg.cn/2020/07/02/2Z4no.md.png">
+  <meta property="article:published_time" content="2020-07-04T06:13:51.529Z">
+  <meta property="article:modified_time" content="2020-07-04T06:13:51.529Z">
+  <meta name="twitter:card" content="summary">
+  <script>var activateDarkMode = function () {
+      document.documentElement.setAttribute('data-theme', 'dark')
+      if (document.querySelector('meta[name="theme-color"]') !== null) {
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
       }
-    })
-  } else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else if (autoChangeMode === '2') {
-  now = new Date()
-  hour = now.getHours()
-  isNight = hour <= 6 || hour >= 18
-  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else {
-  if (t === 'dark') activateDarkMode()
-  else if (t === 'light') activateLightMode()
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><script src="https://tajs.qq.com/stats?sId=500723512" charset="UTF-8"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
-  },
-  runtime_unit: '天',
-  runtime: true,
-  copyright: undefined,
-  ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: {"bookmark":{"message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-center"},
-  justifiedGallery: {
-    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-  },
-  baiduPush: false,
-  highlightCopy: true,
-  highlightLang: true,
-  isPhotoFigcaption: false,
-  islazyload: true,
-  isanchor: false    
-}</script><script>var GLOBAL_CONFIG_SITE = { 
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isSidebar: false
-  }</script><noscript><style>
-#nav {
-  opacity: 1
-}
-.justified-gallery img{
-  opacity: 1
-}
-</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://wx2.sbimg.cn/2020/07/02/2Z4no.md.png" onerror="onerror=null;src='https://wx2.sbimg.cn/2020/07/02/2ZGcV.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">2</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">1</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/Lab/"><i class="fa-fw fa fa-cogs"></i><span> Lab</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-clipboard-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-hourglass-half"></i><span> 归档</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-list"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/photoes/"><i class="fa-fw fas fa-photo-video"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fas fa-pen"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://wx1.sbimg.cn/2020/07/02/2YlcM.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">DIDIQi</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/Lab/"><i class="fa-fw fa fa-cogs"></i><span> Lab</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-clipboard-list"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-hourglass-half"></i><span> 归档</span></a></li><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-list"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/photoes/"><i class="fa-fw fas fa-photo-video"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fas fa-pen"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">DIDIQi</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/DIDIQi" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:983493802@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://weibo.com/u/6004786226" target="_blank" title="微博"><i class="fab fa-weibo"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/07/04/blog-02/" title="死亡">     <img class="post_bg" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/ne78w4.jpg" onerror="this.onerror=null;this.src='https://wx1.sbimg.cn/2020/07/02/2YI2T.png'" alt="死亡"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/04/blog-02/" title="死亡">死亡</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-07-04 13:17:03"><i class="far fa-calendar-alt"></i>2020-07-04</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-07-04 13:51:00"><i class="fas fa-history"></i>2020-07-04</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></span></div><div class="content">
-            
-          
-
-死亡关于死亡：    不知道第几次又想到这个话题，看到这两个字都会心紧紧提起，肥肉狂抖。
-​    第一次对死亡这件事有概念，大概是记忆里外婆家的小西屋里似乎住着一个拄着拐杖的老太，一身黑色的衣服，看不清脸，可能是男老太或是女老太，今年问起外公才知道他们先后都住过。后来小西屋就变成了杂物间，冬天可以在那里烤炉子，烤红薯，烤馒头，还烫化了我的一双棉靴的鞋底。再后来，外婆也住进了那间小西屋，窗台外放着一个黄色的皮沙发，冬天可以在那里晒太阳。
-​    第一次对死亡这件事有画面，是初中还是高中，半夜做梦哭醒。梦见死后的葬礼，我的墓碑前站着一片穿着黑色的人，我不知道自己是一颗粒子还是缩小的自己。时代像放电影一样x N倍速播放，我飘到了🌍的最外圈，地球在自转，我在看，地球在公转，我在看，一直在看。这个画面伴随我到现在，偶尔也会重复这个梦，更多的是最后那个在地球外看着它转的瞬间，空无一人之境的荒寂，总会让我的肌肉不由自主的抖动。
-​    他们劝我说，没有人能逃过死亡。我知道，可是我知道和我不能接受这两件事并不冲突，每一次提起我都有第一次的紧张 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/07/04/blog-01/" title="夜">     <img class="post_bg" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/kwxz16.jpg" onerror="this.onerror=null;this.src='https://wx1.sbimg.cn/2020/07/02/2YI2T.png'" alt="夜"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/04/blog-01/" title="夜">夜</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-07-04 12:35:11"><i class="far fa-calendar-alt"></i>2020-07-04</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-07-04 13:51:09"><i class="fas fa-history"></i>2020-07-04</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></span></div><div class="content">
-            
-          
-
-夜关于夜晚：
-突然觉得用万籁俱寂来形容乡村的夏天夜晚是不太恰当的。
-傍晚六点，躲避了一天太阳的人们趁着夕阳的余晖串门聊天；洗漱完成后，七点钟，每家每户响起了新闻联播的声音，这似乎是没有网上冲浪的人们得知外界新鲜消息的唯一途径；七点三十五分，天气预报也是必选节目，得知未来几天的天气走向是农民的每日必做题；到了九点，村子里的大部分生物都进入了一天的休息模式，但总有一些不从众的动物，听取蛙声一片是非常准确的，不论走到哪里都好像走进了蛙圈，不知道谁家的狗会叫几声亮亮嗓子，还是在和没睡的同伴交流着什么。
-夜晚的风好像都是会呼吸的，总觉得风带来了一些什么声音，静下来仔细去听总是若有若无的。不知道还能再看几次这样的夜晚，有一枚特别亮的月亮，几十颗闪闪发光的星星和特别黑的夜晚。星星，这个词语真的很适合描述这个事物，它亮了一段时间之后就会灭掉，一瞬间融入黑夜之中，好像那儿什么都没有出现过。
-
-            ~来自龙猫小姐的兔子朋友的祝福
-          </div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://wx2.sbimg.cn/2020/07/02/2Z4no.md.png" onerror="this.onerror=null;this.src='https://wx2.sbimg.cn/2020/07/02/2ZGcV.gif'" alt="avatar"/><div class="author-info__name">Blue Dam</div><div class="author-info__description">Never forget why you started.</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">2</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">1</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">1</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/DIDIQi" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:983493802@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://weibo.com/u/6004786226" target="_blank" title="微博"><i class="fab fa-weibo"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/2020/07/04/blog-02/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/ne78w4.jpg" onerror="this.onerror=null;this.src='https://wx1.sbimg.cn/2020/07/02/2YI2T.png'" title="死亡" alt="死亡"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/07/04/blog-02/" title="死亡">死亡</div><time class="aside-post_meta post-meta__date" title="发表于 2020-07-04 13:17:03">2020-07-04</time></div></a></div><div class="aside-recent-post"><a href="/2020/07/04/blog-01/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/kwxz16.jpg" onerror="this.onerror=null;this.src='https://wx1.sbimg.cn/2020/07/02/2YI2T.png'" title="夜" alt="夜"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/07/04/blog-01/" title="夜">夜</div><time class="aside-post_meta post-meta__date" title="发表于 2020-07-04 12:35:11">2020-07-04</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/"><span class="card-category-list-name">随笔</span><span class="card-category-list-count">2</span></a></li>
-                       
-            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 16px; color: #999">生活</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">2</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">2</div></div><div class="webinfo-item"><div class="webinfo-runtime-name">已运行时间 :</div><div class="webinfo-runtime-count" id="webinfo-runtime-count" publish_date="2020/6/30 00:00:00">     </div></div><div class="webinfo-item"><div class="webinfo-site-wordcount-name">本站总字数 :</div><div class="webinfo-site-wordcount">809</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://wx1.sbimg.cn/2020/07/02/2YlcM.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By Blue Dam</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">Hi, welcome to our Page!</div><div class="icp"><a href="http://www.beian.miit.gov.cn/state/outPortal/loginPortal.action" target="_blank" rel="noopener"><img class="icp-icon" src="/img/icp.png"/><span>苏ICP备0001</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
- <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/js/third-party/canvas-nest.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/search/local-search.js"></script><script>if (document.getElementsByClassName('mermaid').length) {
-  loadScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js',function () {
-    mermaid.initialize({
-      theme: 'neutral',
-  })
-})
-}</script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
-if (subtitleEffect) { 
-  var typed = new Typed("#subtitle", {
-    strings: "懒惰&#44;暴躁&#44;傲慢,所有的程序员都是好编剧&#44;所有的计算机都是烂演员".split(","),
-    startDelay: 300,
-    typeSpeed: 150,
-    loop: true,
-    backSpeed: 50
-  })
-} else {
-  document.getElementById("subtitle").innerHTML = '懒惰&#44;暴躁&#44;傲慢'
-}</script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/081f0fb8.js","daovoice")
-</script><script>var isChatBtn = false
-daovoice('init', {
-  app_id: '081f0fb8',},{
-  launcher: { 
-     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
-  },
-});
-daovoice('update');
-
-if (isChatBtn) {
-  var chatBtn = document.getElementById("chat_btn")
-  chatBtn.addEventListener("click", function(){
-    daovoice('show')
-  });
-} else {
-  if (false) {
-    function chatBtnHide () {
-      daovoice('update', {},{
-        launcher: { 
-        disableLauncherIcon: true // 悬浮 ICON 是否显示
-        },
-      });
     }
-    function chatBtnShow () {
-      daovoice('update', {},{
-        launcher: { 
-        disableLauncherIcon: false // 悬浮 ICON 是否显示
-        },
-      });
+    var activateLightMode = function () {
+      document.documentElement.setAttribute('data-theme', 'light')
+      if (document.querySelector('meta[name="theme-color"]') !== null) {
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+      }
     }
-  }
-}</script><script>'use strict';'serviceWorker'in navigator&&navigator.serviceWorker.register('service-worker.js').then(function(a){a.onupdatefound=function(){var b=a.installing;b.onstatechange=function(){switch(b.state){case'installed':navigator.serviceWorker.controller?console.log('New or updated content is available.'):console.log('Content is now available offline!');break;case'redundant':console.error('The installing service worker became redundant.');}}}}).catch(function(a){console.error('Error during service worker registration:',a)});
-</script></body></html>
+
+    var getCookies = function (name) {
+      const value = `; ${document.cookie}`
+      const parts = value.split(`; ${name}=`)
+      if (parts.length === 2) return parts.pop().split(';').shift()
+    }
+
+    var autoChangeMode = 'false'
+    var t = getCookies('theme')
+    if (autoChangeMode === '1') {
+      var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+      var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+      var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+      var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+      if (t === undefined) {
+        if (isLightMode) activateLightMode()
+        else if (isDarkMode) activateDarkMode()
+        else if (isNotSpecified || hasNoSupport) {
+          console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+          var now = new Date()
+          var hour = now.getHours()
+          var isNight = hour <= 6 || hour >= 18
+          isNight ? activateDarkMode() : activateLightMode()
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+          if (Cookies.get('theme') === undefined) {
+            e.matches ? activateDarkMode() : activateLightMode()
+          }
+        })
+      } else if (t === 'light') activateLightMode()
+      else activateDarkMode()
+    } else if (autoChangeMode === '2') {
+      now = new Date()
+      hour = now.getHours()
+      isNight = hour <= 6 || hour >= 18
+      if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+      else if (t === 'light') activateLightMode()
+      else activateDarkMode()
+    } else {
+      if (t === 'dark') activateDarkMode()
+      else if (t === 'light') activateLightMode()
+    }</script>
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css">
+  <script src="https://tajs.qq.com/stats?sId=500723512" charset="UTF-8"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap">
+  <script>var GLOBAL_CONFIG = {
+      root: '/',
+      algolia: undefined,
+      localSearch: { "path": "search.xml", "languages": { "hits_empty": "找不到您查询的内容:${query}" } },
+      translate: { "defaultEncoding": 2, "translateDelay": 0, "msgToTraditionalChinese": "繁", "msgToSimplifiedChinese": "簡" },
+      copy: {
+        success: '复制成功',
+        error: '复制错误',
+        noSupport: '浏览器不支持'
+      },
+      bookmark: {
+        message_prev: '按',
+        message_next: '键将本页加入书签'
+      },
+      runtime_unit: '天',
+      runtime: true,
+      copyright: undefined,
+      ClickShowText: undefined,
+      medium_zoom: false,
+      fancybox: true,
+      Snackbar: { "bookmark": { "message_prev": "按", "message_next": "键将本页加入书签" }, "chs_to_cht": "你已切换为繁体", "cht_to_chs": "你已切换为简体", "day_to_night": "你已切换为深色模式", "night_to_day": "你已切换为浅色模式", "bgLight": "#49b1f5", "bgDark": "#121212", "position": "top-center" },
+      justifiedGallery: {
+        js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+        css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+      },
+      baiduPush: false,
+      highlightCopy: true,
+      highlightLang: true,
+      isPhotoFigcaption: false,
+      islazyload: true,
+      isanchor: false
+    }</script>
+  <script>var GLOBAL_CONFIG_SITE = {
+      isPost: false,
+      isHome: true,
+      isHighlightShrink: false,
+      isSidebar: false
+    }</script><noscript>
+    <style>
+      #nav {
+        opacity: 1
+      }
+
+      .justified-gallery img {
+        opacity: 1
+      }
+    </style>
+  </noscript>
+  <meta name="generator" content="Hexo 4.2.1">
+</head>
+
+<body>
+  <div id="mobile-sidebar">
+    <div id="menu_mask"></div>
+    <div id="mobile-sidebar-menus">
+      <div class="mobile_author_icon"><img class="avatar-img" src="https://wx2.sbimg.cn/2020/07/02/2Z4no.md.png"
+          onerror="onerror=null;src='https://wx2.sbimg.cn/2020/07/02/2ZGcV.gif'" alt="avatar" /></div>
+      <div class="mobile_post_data">
+        <div class="mobile_data_item is-center">
+          <div class="mobile_data_link"><a href="/archives/">
+              <div class="headline">文章</div>
+              <div class="length_num">2</div>
+            </a></div>
+        </div>
+        <div class="mobile_data_item is-center">
+          <div class="mobile_data_link"><a href="/tags/">
+              <div class="headline">标签</div>
+              <div class="length_num">1</div>
+            </a></div>
+        </div>
+        <div class="mobile_data_item is-center">
+          <div class="mobile_data_link"><a href="/categories/">
+              <div class="headline">分类</div>
+              <div class="length_num">1</div>
+            </a></div>
+        </div>
+      </div>
+      <hr />
+      <div class="menus_items">
+        <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a>
+        </div>
+        <div class="menus_item"><a class="site-page" href="/Lab/"><i class="fa-fw fa fa-cogs"></i><span> Lab</span></a>
+        </div>
+        <div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-clipboard-list"></i><span> 清单</span><i
+              class="fas fa-chevron-down menus-expand"></i></a>
+          <ul class="menus_item_child">
+            <li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-hourglass-half"></i><span> 归档</span></a>
+            </li>
+            <li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li>
+            <li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-list"></i><span> 分类</span></a></li>
+          </ul>
+        </div>
+        <div class="menus_item"><a class="site-page" href="/photoes/"><i class="fa-fw fas fa-photo-video"></i><span>
+              相册</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fas fa-pen"></i><span>
+              留言板</span></a></div>
+        <div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a>
+        </div>
+        <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span>
+              关于</span></a></div>
+      </div>
+    </div>
+  </div>
+  <div id="body-wrap">
+    <header class="full_page" id="page-header" style="background-image: url(https://wx1.sbimg.cn/2020/07/02/2YlcM.jpg)">
+      <nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name"
+            href="/">DIDIQi</a></span><span class="pull-right menus">
+          <div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span>
+                搜索</span></a></div>
+          <div class="menus_items">
+            <div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a>
+            </div>
+            <div class="menus_item"><a class="site-page" href="/Lab/"><i class="fa-fw fa fa-cogs"></i><span>
+                  Lab</span></a></div>
+            <div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-clipboard-list"></i><span> 清单</span><i
+                  class="fas fa-chevron-down menus-expand"></i></a>
+              <ul class="menus_item_child">
+                <li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-hourglass-half"></i><span>
+                      归档</span></a></li>
+                <li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li>
+                <li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-list"></i><span> 分类</span></a></li>
+              </ul>
+            </div>
+            <div class="menus_item"><a class="site-page" href="/photoes/"><i class="fa-fw fas fa-photo-video"></i><span>
+                  相册</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fas fa-pen"></i><span>
+                  留言板</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span>
+                  友链</span></a></div>
+            <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span>
+                  关于</span></a></div>
+          </div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span>
+        </span></nav>
+      <div id="site-info">
+        <h1 id="site_title">DIDIQi</h1>
+        <div id="site_subtitle"><span id="subtitle"></span></div>
+        <div id="site_social_icons"><a class="social-icon" href="https://github.com/DIDIQi" target="_blank"
+            title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:983493802@qq.com"
+            target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon"
+            href="https://weibo.com/u/6004786226" target="_blank" title="微博"><i class="fab fa-weibo"></i></a></div>
+      </div>
+      <div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div>
+    </header>
+    <main class="layout_page" id="content-inner">
+      <div class="recent-posts" id="recent-posts">
+        <div class="recent-post-item">
+          <div class="post_cover left_radius"><a href="/2020/07/04/blog-02/" title="死亡"> <img class="post_bg"
+                data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/ne78w4.jpg"
+                onerror="this.onerror=null;this.src='https://wx1.sbimg.cn/2020/07/02/2YI2T.png'" alt="死亡"></a></div>
+          <div class="recent-post-info"><a class="article-title" href="/2020/07/04/blog-02/" title="死亡">死亡</a>
+            <div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created"
+                  title="发表于 2020-07-04 13:17:03"><i class="far fa-calendar-alt"></i>2020-07-04</span><span
+                  class="article-meta__separator">|</span><span class="post-meta__date-updated"
+                  title="更新于 2020-07-04 13:51:00"><i class="fas fa-history"></i>2020-07-04</span></time><span
+                class="article-meta"><span class="article-meta__separator">|</span><i
+                  class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories"
+                  href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></span><span class="article-meta tags"><span
+                  class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a
+                  class="article-meta__tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></span></div>
+            <div class="content">
+
+
+
+              死亡关于死亡： 不知道第几次又想到这个话题，看到这两个字都会心紧紧提起，肥肉狂抖。
+              ​
+              第一次对死亡这件事有概念，大概是记忆里外婆家的小西屋里似乎住着一个拄着拐杖的老太，一身黑色的衣服，看不清脸，可能是男老太或是女老太，今年问起外公才知道他们先后都住过。后来小西屋就变成了杂物间，冬天可以在那里烤炉子，烤红薯，烤馒头，还烫化了我的一双棉靴的鞋底。再后来，外婆也住进了那间小西屋，窗台外放着一个黄色的皮沙发，冬天可以在那里晒太阳。
+              ​ 第一次对死亡这件事有画面，是初中还是高中，半夜做梦哭醒。梦见死后的葬礼，我的墓碑前站着一片穿着黑色的人，我不知道自己是一颗粒子还是缩小的自己。时代像放电影一样x
+              N倍速播放，我飘到了🌍的最外圈，地球在自转，我在看，地球在公转，我在看，一直在看。这个画面伴随我到现在，偶尔也会重复这个梦，更多的是最后那个在地球外看着它转的瞬间，空无一人之境的荒寂，总会让我的肌肉不由自主的抖动。
+              ​ 他们劝我说，没有人能逃过死亡。我知道，可是我知道和我不能接受这两件事并不冲突，每一次提起我都有第一次的紧张 ...</div>
+          </div>
+        </div>
+        <div class="recent-post-item">
+          <div class="post_cover right_radius"><a href="/2020/07/04/blog-01/" title="夜"> <img class="post_bg"
+                data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/kwxz16.jpg"
+                onerror="this.onerror=null;this.src='https://wx1.sbimg.cn/2020/07/02/2YI2T.png'" alt="夜"></a></div>
+          <div class="recent-post-info"><a class="article-title" href="/2020/07/04/blog-01/" title="夜">夜</a>
+            <div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created"
+                  title="发表于 2020-07-04 12:35:11"><i class="far fa-calendar-alt"></i>2020-07-04</span><span
+                  class="article-meta__separator">|</span><span class="post-meta__date-updated"
+                  title="更新于 2020-07-04 13:51:09"><i class="fas fa-history"></i>2020-07-04</span></time><span
+                class="article-meta"><span class="article-meta__separator">|</span><i
+                  class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories"
+                  href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></span><span class="article-meta tags"><span
+                  class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a
+                  class="article-meta__tags" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></span></div>
+            <div class="content">
+
+
+
+              夜关于夜晚：
+              突然觉得用万籁俱寂来形容乡村的夏天夜晚是不太恰当的。
+              傍晚六点，躲避了一天太阳的人们趁着夕阳的余晖串门聊天；洗漱完成后，七点钟，每家每户响起了新闻联播的声音，这似乎是没有网上冲浪的人们得知外界新鲜消息的唯一途径；七点三十五分，天气预报也是必选节目，得知未来几天的天气走向是农民的每日必做题；到了九点，村子里的大部分生物都进入了一天的休息模式，但总有一些不从众的动物，听取蛙声一片是非常准确的，不论走到哪里都好像走进了蛙圈，不知道谁家的狗会叫几声亮亮嗓子，还是在和没睡的同伴交流着什么。
+              夜晚的风好像都是会呼吸的，总觉得风带来了一些什么声音，静下来仔细去听总是若有若无的。不知道还能再看几次这样的夜晚，有一枚特别亮的月亮，几十颗闪闪发光的星星和特别黑的夜晚。星星，这个词语真的很适合描述这个事物，它亮了一段时间之后就会灭掉，一瞬间融入黑夜之中，好像那儿什么都没有出现过。
+
+              ~来自龙猫小姐的兔子朋友的祝福
+            </div>
+          </div>
+        </div>
+        <nav id="pagination">
+          <div class="pagination"><span class="page-number current">1</span></div>
+        </nav>
+      </div>
+      <div class="aside_content" id="aside_content">
+        <div class="card-widget card-info">
+          <div class="card-content">
+            <div class="card-info-avatar is-center"><img class="avatar-img"
+                src="https://wx2.sbimg.cn/2020/07/02/2Z4no.md.png"
+                onerror="this.onerror=null;this.src='https://wx2.sbimg.cn/2020/07/02/2ZGcV.gif'" alt="avatar" />
+              <div class="author-info__name">Blue Dam</div>
+              <div class="author-info__description">Never forget why you started.</div>
+            </div>
+            <div class="card-info-data">
+              <div class="card-info-data-item is-center"><a href="/archives">
+                  <div class="headline">文章</div>
+                  <div class="length_num">2</div>
+                </a></div>
+              <div class="card-info-data-item is-center"> <a href="/tags">
+                  <div class="headline">标签</div>
+                  <div class="length_num">1</div>
+                </a></div>
+              <div class="card-info-data-item is-center"> <a href="/categories">
+                  <div class="headline">分类</div>
+                  <div class="length_num">1</div>
+                </a></div>
+            </div>
+            <div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" title="加入书签"><i
+                  class="fas fa-bookmark"></i><span>加入书签</span></button></div>
+            <div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/DIDIQi"
+                target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon"
+                href="mailto:983493802@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a
+                class="social-icon" href="https://weibo.com/u/6004786226" target="_blank" title="微博"><i
+                  class="fab fa-weibo"></i></a></div>
+          </div>
+        </div>
+        <div class="card-widget card-announcement">
+          <div class="card-content">
+            <div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div>
+            <div class="announcement_content">This is my Blog</div>
+          </div>
+        </div>
+        <div class="card-widget card-recent-post">
+          <div class="card-content">
+            <div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div>
+            <div class="aside-recent-item">
+              <div class="aside-recent-post"><a href="/2020/07/04/blog-02/">
+                  <div class="aside-post-cover"><img class="aside-post-bg"
+                      data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/ne78w4.jpg"
+                      onerror="this.onerror=null;this.src='https://wx1.sbimg.cn/2020/07/02/2YI2T.png'" title="死亡"
+                      alt="死亡" /></div>
+                  <div class="aside-post-title">
+                    <div class="aside-post_title" href="/2020/07/04/blog-02/" title="死亡">死亡</div><time
+                      class="aside-post_meta post-meta__date" title="发表于 2020-07-04 13:17:03">2020-07-04</time>
+                  </div>
+                </a></div>
+              <div class="aside-recent-post"><a href="/2020/07/04/blog-01/">
+                  <div class="aside-post-cover"><img class="aside-post-bg"
+                      data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/kwxz16.jpg"
+                      onerror="this.onerror=null;this.src='https://wx1.sbimg.cn/2020/07/02/2YI2T.png'" title="夜"
+                      alt="夜" /></div>
+                  <div class="aside-post-title">
+                    <div class="aside-post_title" href="/2020/07/04/blog-01/" title="夜">夜</div><time
+                      class="aside-post_meta post-meta__date" title="发表于 2020-07-04 12:35:11">2020-07-04</time>
+                  </div>
+                </a></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-widget card-categories">
+          <div class="card-content">
+            <div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div>
+            <ul class="card-category-list">
+              <li class="card-category-list-item "><a class="card-category-list-link"
+                  href="/categories/%E9%9A%8F%E7%AC%94/"><span class="card-category-list-name">随笔</span><span
+                    class="card-category-list-count">2</span></a></li>
+
+            </ul>
+          </div>
+        </div>
+        <div class="card-widget card-tags">
+          <div class="card-content">
+            <div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div>
+            <div class="card-tag-cloud"><a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 16px; color: #999">生活</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-widget card-archives">
+          <div class="card-content">
+            <div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div>
+            <ul class="card-archive-list">
+              <li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span
+                    class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">2</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-widget card-webinfo">
+          <div class="card-content">
+            <div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div>
+            <div class="webinfo">
+              <div class="webinfo-item">
+                <div class="webinfo-article-name">文章数目 :</div>
+                <div class="webinfo-article-count">2</div>
+              </div>
+              <div class="webinfo-item">
+                <div class="webinfo-runtime-name">已运行时间 :</div>
+                <div class="webinfo-runtime-count" id="webinfo-runtime-count" publish_date="2020/6/30 00:00:00"> </div>
+              </div>
+              <div class="webinfo-item">
+                <div class="webinfo-site-wordcount-name">本站总字数 :</div>
+                <div class="webinfo-site-wordcount">809</div>
+              </div>
+              <div class="webinfo-item">
+                <div class="webinfo-site-uv-name">本站访客数 :</div>
+                <div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div>
+              </div>
+              <div class="webinfo-item">
+                <div class="webinfo-site-name">本站总访问量 :</div>
+                <div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer id="footer" style="background-image: url(https://wx1.sbimg.cn/2020/07/02/2YlcM.jpg)" data-type="photo">
+      <div id="footer-wrap">
+        <div class="copyright">&copy;2020 By Blue Dam</div>
+        <div class="footer_custom_text">Hi, welcome to our Page!</div>
+        <div class="icp"><a href="http://www.beian.miit.gov.cn/state/outPortal/loginPortal.action" target="_blank"
+            rel="noopener"><img class="icp-icon" src="/img/icp.png" /><span>苏ICP备0001</span></a></div>
+      </div>
+    </footer>
+  </div>
+  <section class="rightside" id="rightside">
+    <div id="rightside-config-hide"><button class="translate_chn_to_cht" id="translateLink"
+        title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div>
+    <div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button
+        id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div>
+  </section>
+  <div class="search-dialog" id="local-search">
+    <div class="search-dialog__title" id="local-search-title">本地搜索</div>
+    <div id="local-input-panel">
+      <div id="local-search-input">
+        <div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text" /></div>
+      </div>
+    </div>
+    <hr />
+    <div id="local-search-results">
+      <div id="local-hits"></div>
+      <div id="local-stats">
+        <div class="local-search-stats__hr" id="hr"><span>由</span> <a
+            href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener"
+            style="color:#49B1F5;">hexo-generator-search</a>
+          <span>提供支持</span></div>
+      </div>
+    </div><span class="search-close-button"><i class="fas fa-times"></i></span>
+  </div>
+  <div class="search-mask"></div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/tw_cn.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script>
+  <script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false"
+    src="/js/third-party/canvas-nest.js"></script>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script>
+  <script src="/js/search/local-search.js"></script>
+  <script>if (document.getElementsByClassName('mermaid').length) {
+      loadScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js', function () {
+        mermaid.initialize({
+          theme: 'neutral',
+        })
+      })
+    }</script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js"></script>
+  <script>var subtitleEffect = true
+    if (subtitleEffect) {
+      var typed = new Typed("#subtitle", {
+        strings: "懒惰&#44;暴躁&#44;傲慢,所有的程序员都是好编剧&#44;所有的计算机都是烂演员".split(","),
+        startDelay: 300,
+        typeSpeed: 150,
+        loop: true,
+        backSpeed: 50
+      })
+    } else {
+      document.getElementById("subtitle").innerHTML = '懒惰&#44;暴躁&#44;傲慢'
+    }</script>
+  <script>(function (i, s, o, g, r, a, m) { i["DaoVoiceObject"] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; a.charset = "utf-8"; m.parentNode.insertBefore(a, m) })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/081f0fb8.js", "daovoice")
+  </script>
+  <script>var isChatBtn = false
+    daovoice('init', {
+      app_id: '081f0fb8',
+    }, {
+      launcher: {
+        disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
+      },
+    });
+    daovoice('update');
+
+    if (isChatBtn) {
+      var chatBtn = document.getElementById("chat_btn")
+      chatBtn.addEventListener("click", function () {
+        daovoice('show')
+      });
+    } else {
+      if (false) {
+        function chatBtnHide() {
+          daovoice('update', {}, {
+            launcher: {
+              disableLauncherIcon: true // 悬浮 ICON 是否显示
+            },
+          });
+        }
+        function chatBtnShow() {
+          daovoice('update', {}, {
+            launcher: {
+              disableLauncherIcon: false // 悬浮 ICON 是否显示
+            },
+          });
+        }
+      }
+    }</script>
+  <script>'use strict'; 'serviceWorker' in navigator && navigator.serviceWorker.register('service-worker.js').then(function (a) { a.onupdatefound = function () { var b = a.installing; b.onstatechange = function () { switch (b.state) { case 'installed': navigator.serviceWorker.controller ? console.log('New or updated content is available.') : console.log('Content is now available offline!'); break; case 'redundant': console.error('The installing service worker became redundant.'); } } } }).catch(function (a) { console.error('Error during service worker registration:', a) });
+  </script>
+</body>
+
+</html>
