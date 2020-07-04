@@ -61,29 +61,7 @@
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[<div class="note primary no-icon">                      </div><p>本站建于2020 年07 夏。</p><p>本人普普通通，这也是本站被叫做DIDI的原因之一。（当然还有其他因素）</p><p>不知道为什么搭建了此站，就像你也不知道为何就来到了这里。~缘分😄</p><div class="note warning">            <p>寄语</p>          </div><p>时间是我们唯一的财富。让我们好好生活，勤于学习吧。</p><div class="note info">            <p>PigG</p>          </div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Gallery</title>
-      <link href="/photoes/index.html"/>
-      <url>/photoes/index.html</url>
-      
-        <content type="html"><![CDATA[<br/><div class="note primary no-icon">                      </div><div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img" src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src='https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/qdjqyq.jpg'>  <figcaption>  <div class="gallery-group-name">壁紙</div>  <p>收藏的一些壁紙</p>  <a href='/photoes/wallpaper/'></a>  </figcaption>  </figure>    <figure class="gallery-group">  <img class="gallery-group-img" src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src='https://i.loli.net/2019/12/25/8t97aVlp4hgyBGu.jpg'>  <figcaption>  <div class="gallery-group-name">漫威</div>  <p>關於漫威的圖片</p>  <a href='/photoes/marvel/'></a>  </figcaption>  </figure>    <figure class="gallery-group">  <img class="gallery-group-img" src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src='https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/x1d7l3.jpg'>  <figcaption>  <div class="gallery-group-name">OH MY GIRL</div>  <p>關於MY GIRL的圖片</p>  <a href='/photoes/girls/'></a>  </figcaption>  </figure>    <figure class="gallery-group">  <img class="gallery-group-img" src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src='https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/1j1ez9.jpg'>  <figcaption>  <div class="gallery-group-name">TopImg</div>  <p>标题图片</p>  <a href='/photoes/BlogBG/'></a>  </figcaption>  </figure>  </div><br/><div class="note info">                      </div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<div class="note primary no-icon">                      </div><p>本站建于2020 年07 夏。</p><p>本人普普通通，这也是本站被叫做DIDI的原因之一。（当然还有其他因素）</p><p>不知道为什么搭建了此站，就像你也不知道为何就来到了这里。~缘分😄</p><div class="note warning">            <p>寄 语</p>          </div><p>时间是我们唯一的财富。让我们好好生活，勤于学习吧。</p><div class="note info">            <p>PigG</p>          </div>]]></content>
       
     </entry>
     
@@ -95,6 +73,17 @@
       <url>/comment/index.html</url>
       
         <content type="html"><![CDATA[<p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/kwxz16.jpg" alt=""></p><div class="note danger">            <p>悄悄话：~ 你很棒！</p>          </div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -123,22 +112,22 @@
     
     
     <entry>
-      <title>BlogBG</title>
-      <link href="/photoes/BlogBG/index.html"/>
-      <url>/photoes/BlogBG/index.html</url>
+      <title>Gallery</title>
+      <link href="/photoes/index.html"/>
+      <url>/photoes/index.html</url>
       
-        <content type="html"><![CDATA[<br/><div class="note primary no-icon">                      </div><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/42e9m9.jpg" alt=""><br><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/45wrg9.png" alt=""><br><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/nzr55g.jpg" alt=""><br><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/1j1ez9.jpg" alt=""></p><br/><div class="note info">                      </div>]]></content>
+        <content type="html"><![CDATA[<br/><div class="note primary no-icon">                      </div><div class="gallery-group-main">  <figure class="gallery-group">  <img class="gallery-group-img" src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src='https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/qdjqyq.jpg'>  <figcaption>  <div class="gallery-group-name">壁紙</div>  <p>收藏的一些壁紙</p>  <a href='/photoes/wallpaper/'></a>  </figcaption>  </figure>    <figure class="gallery-group">  <img class="gallery-group-img" src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src='https://i.loli.net/2019/12/25/8t97aVlp4hgyBGu.jpg'>  <figcaption>  <div class="gallery-group-name">漫威</div>  <p>關於漫威的圖片</p>  <a href='/photoes/marvel/'></a>  </figcaption>  </figure>    <figure class="gallery-group">  <img class="gallery-group-img" src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src='https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/x1d7l3.jpg'>  <figcaption>  <div class="gallery-group-name">OH MY GIRL</div>  <p>關於MY GIRL的圖片</p>  <a href='/photoes/girls/'></a>  </figcaption>  </figure>    <figure class="gallery-group">  <img class="gallery-group-img" src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src='https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/1j1ez9.jpg'>  <figcaption>  <div class="gallery-group-name">TopImg</div>  <p>标题图片</p>  <a href='/photoes/BlogBG/'></a>  </figcaption>  </figure>  </div><br/><div class="note info">                      </div>]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>marvel</title>
-      <link href="/photoes/marvel/index.html"/>
-      <url>/photoes/marvel/index.html</url>
+      <title>BlogBG</title>
+      <link href="/photoes/BlogBG/index.html"/>
+      <url>/photoes/BlogBG/index.html</url>
       
-        <content type="html"><![CDATA[<br/><div class="note primary no-icon">                      </div>]]></content>
+        <content type="html"><![CDATA[<br/><div class="note primary no-icon">                      </div><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/42e9m9.jpg" alt=""><br><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/45wrg9.png" alt=""><br><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/nzr55g.jpg" alt=""><br><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/1j1ez9.jpg" alt=""></p><br/><div class="note info">                      </div>]]></content>
       
     </entry>
     
@@ -161,6 +150,17 @@
       <url>/photoes/wallpaper/index.html</url>
       
         <content type="html"><![CDATA[<br/><div class="note primary no-icon">                      </div><div class="justified-gallery"><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/lmkeey.png" alt=""><br><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/39gr53.jpg" alt=""></p><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/4ve7dl.jpg" alt=""></p><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/eo19kw.jpg" alt=""><br><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/g8drv7.jpg" alt=""><br><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/kwxz16.jpg" alt=""></p><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/ne78w4.jpg" alt=""></p><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/qdjqyq.jpg" alt=""><br><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/x1d7l3.jpg" alt=""></p>          </div><br/><div class="note info">                      </div>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>marvel</title>
+      <link href="/photoes/marvel/index.html"/>
+      <url>/photoes/marvel/index.html</url>
+      
+        <content type="html"><![CDATA[<br/><div class="note primary no-icon">                      </div>]]></content>
       
     </entry>
     
