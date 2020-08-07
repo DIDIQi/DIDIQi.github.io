@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Tomcat 简介</title>
+      <link href="/2020/08/07/tomcatNote/"/>
+      <url>/2020/08/07/tomcatNote/</url>
+      
+        <content type="html"><![CDATA[<div class="note primary no-icon">                      </div><h1 id="HTTP工作过程"><a href="#HTTP工作过程" class="headerlink" title="HTTP工作过程"></a>HTTP工作过程</h1><p>HTTP协议是B/S 之间的数据协议。主要规定了客户端和服务器之间的通信格式，作为应用层协议，一般不涉及数据包（packet）的传输。它基于TCP/IP协议来传输数据。</p><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/tomcatNote/image-20200807112624724.png" alt=""></p><h1 id="Tomcat架构"><a href="#Tomcat架构" class="headerlink" title="Tomcat架构"></a>Tomcat架构</h1><h2 id="Tomcat架构的必要性"><a href="#Tomcat架构的必要性" class="headerlink" title="Tomcat架构的必要性"></a>Tomcat架构的必要性</h2><p>图一，当服务被部署到服务器，当用户想服务器发送http请求以完成不同的业务需求时，服务器需要不断调用具体的业务类。耦合性较高。</p><p>于是Tomcat 架构是非常有必要的，tomcat架构中，服务器将用户请求直接转发给Servlet容器，通过Servlet来实现对具体业务层的调用。实现连接处理和业务处理的分离。</p><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/tomcatNote/image-20200807113459302.png" alt="image-20200807113459302"></p><h2 id="Servlet工作过程"><a href="#Servlet工作过程" class="headerlink" title="Servlet工作过程"></a>Servlet工作过程</h2><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/tomcatNote/image-20200807114035741.png" alt="image-20200807114035741"></p><p>用户–&gt;httpRequeset—转发–&gt;ServletRequest—&gt;Servlet容器–&gt;根据服务定位对应的servlet方法–&gt;{if 已加载（init） -then 调用(使用service方法处理请求) else 先加载 then 调用（使用service方法处理请求）}—&gt;ServletResponse—&gt;Http服务器–&gt;解析后返回给用户。</p><h2 id="Tomcat整体架构"><a href="#Tomcat整体架构" class="headerlink" title="Tomcat整体架构"></a>Tomcat整体架构</h2><p>Tomcat是Servlet的容器。</p><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/tomcatNote/tomcat.png" alt="tomcat"></p><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/tomcatNote/image-20200807145901371.png" alt="image-20200807145901371"></p><table><thead><tr><th align="center">组件</th><th>职责</th></tr></thead><tbody><tr><td align="center">Server</td><td>表示整个servlet容器，因此Tomcat容器中只有一个Server实例。</td></tr><tr><td align="center">Service</td><td>表示一个或多个Connector的集合。这些Connector共享同一个Container来处理其他请求。在一个Server中可以包含多个Service，这些Service相互独立。</td></tr><tr><td align="center">Connector</td><td>用于监听并转换为Socket请求，将该请求交由Container处理，支持不同的协议及不同IO方式</td></tr><tr><td align="center">Container</td><td>代表一类组件，这类组件的作用就是接收客户端请求并返回响应数据，具体操作委派到子组件完成。在Tomcat中存在不同级别的容器：Engine、Host、Context、Wrapper。</td></tr><tr><td align="center">Engine</td><td>表示整个Servlet引擎，Engine为最高级别的容器。尽管Engine不是直接处理请求的容器却是获得目标容器的入口。</td></tr><tr><td align="center">Host</td><td>表示Engine中的虚拟机，与一个服务器的网络名有关，如域名等。客户端可以使用这个网络名连接服务器，这个名称必须要在DNS服务器上注册。</td></tr><tr><td align="center">Context</td><td>用于表示ServletContext，在Servlet规范中，一个ServletContext表示一个Web应用。</td></tr><tr><td align="center">Wrapper</td><td>表示Web应用中定义的Servlet。</td></tr></tbody></table><ul><li>补充说明：<ol><li>Connector/Container：将网络协议和请求处理从概念上分开。连接器：外部网络；容器：请求处理。</li><li>Service：一个Service包含多个Connection和一个Container。更好判断Conection由哪个Container来处理。</li><li>Context：当接收到Connection请求时，能够找到一个合适的Web应用来处理。</li><li>Container：一个概念。整个servlet 的引擎。为了与Tomcat组件命名一致，将Container重新命名为Engine。</li><li>Wrapper：一个概念。一个Web应用中，可以包含多个servlet实例来处理不同链接的请求。需要一个组件概念来表示servlet。所以在Tomcat中servlet定义被称为Wrapper。</li></ol></li></ul><p>所以，Tomcat 的核心组件：①连接器（Connector）和容器（Container）。</p><h3 id="Coyote-amp-Catalina"><a href="#Coyote-amp-Catalina" class="headerlink" title="Coyote&amp;Catalina"></a>Coyote&amp;Catalina</h3><p>connector 具体实现==Coyote；Servlet容器 具体实现==Catalina；</p><p>Catalina，一个Catalina实例，管理一个server。用来创建各个容器组件。同时负责启动、停止应用服务器。</p><p>一个tomcat容器只有一个catalina容器，可以由多个coyote同时提供通信服务。</p><p>PS：Coyote与Catalina 不是对等的关系。</p><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/tomcatNote/image-20200807122528593.png" alt="image-20200807122528593"></p><h3 id="连接器Connector"><a href="#连接器Connector" class="headerlink" title="连接器Connector"></a>连接器Connector</h3><p>Coyte：tomcat连接器框架的名称，发送和响应请求。负责具体协议和I/O操作；</p><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/tomcatNote/connector.png" alt="connector"></p><h3 id="容器Container"><a href="#容器Container" class="headerlink" title="容器Container"></a>容器Container</h3><p>Catalina是Tomcat的Servlet容器的实现。</p><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/tomcatNote/tomcat.jpg" alt="tomcat"></p><h2 id="工作过程："><a href="#工作过程：" class="headerlink" title="工作过程："></a>工作过程：</h2><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/tomcatNote/20180308173032224.png" alt="img"></p><h1 id="Web架构中的tomcat"><a href="#Web架构中的tomcat" class="headerlink" title="Web架构中的tomcat"></a>Web架构中的tomcat</h1><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/tomcatNote/image-20200807145933597.png" alt="image-20200807145933597"></p><p>PS:在springboot框架中，内嵌了tomcat功能。</p><div class="note info">            <p>🎯 本文为个人学习笔记，若有错误之处，请在下方留言。将会及时修正。</p>          </div><h1 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h1><p><a href="https://www.cnblogs.com/tianhaichao/p/12664956.html" target="_blank" rel="noopener">Tomcat学习之体系架构</a></p><p><a href="https://blog.csdn.net/qq_26323323/article/details/84848305?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param" target="_blank" rel="noopener">Tomcat基本架构解析</a></p><p><a href="https://blog.csdn.net/u014231646/article/details/79482195" target="_blank" rel="noopener">Tomcat（一）:简介</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> tomcat </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git使用手册</title>
       <link href="/2020/08/03/gitNote/"/>
       <url>/2020/08/03/gitNote/</url>
