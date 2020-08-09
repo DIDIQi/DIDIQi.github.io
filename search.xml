@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>设计模式</title>
+      <link href="/2020/08/09/designPatternNote/"/>
+      <url>/2020/08/09/designPatternNote/</url>
+      
+        <content type="html"><![CDATA[<div class="note primary no-icon">                      </div><h1 id="为什么需要设计模式"><a href="#为什么需要设计模式" class="headerlink" title="为什么需要设计模式"></a>为什么需要设计模式</h1><ul><li><p>软件设计中普遍存在（反复出现）的各种问题，所提出的固定解决方案。</p></li><li><p>减少耦合，提高内聚，增加可维护性、可扩展性。</p></li><li><p>设计模式 == OOA【面对对象分析】 +OOD【面对对象设计】</p></li></ul><h1 id="软件开发中设计模式所处位置"><a href="#软件开发中设计模式所处位置" class="headerlink" title="软件开发中设计模式所处位置"></a>软件开发中设计模式所处位置</h1><p> 面向对象（语言）=&gt; 功能模块[设计模式+算法(数据结构)] =&gt; 框架[使用到多种设计模式]  =&gt;  架构 [服务器集群]</p><h1 id="设计模式七大原则"><a href="#设计模式七大原则" class="headerlink" title="设计模式七大原则"></a>设计模式七大原则</h1><table><thead><tr><th align="center">设计原则名称</th><th align="center">定义</th><th align="center">使用频率</th></tr></thead><tbody><tr><td align="center">单一职责原则 （SRP）</td><td align="center">一个类只负责一项职责</td><td align="center">1</td></tr><tr><td align="center">开闭原则（OCP）</td><td align="center">对扩展开放，对修改关闭</td><td align="center">2</td></tr><tr><td align="center">里氏替换原则（LSP）</td><td align="center">所有引用基类（父类）的地方，可以使用其子类的对象</td><td align="center">3</td></tr><tr><td align="center">依赖倒转（倒置）原则（DIP）</td><td align="center">抽象不依赖细节，细节依赖于抽象</td><td align="center">4</td></tr><tr><td align="center">合成复用原则（CRP）</td><td align="center">尽量使用对象组合，而不通过继承达到复用目的</td><td align="center">5</td></tr><tr><td align="center">迪米特法则（LoD）</td><td align="center">一个软件实体尽可能少的与其他实体发生相互作用</td><td align="center">6</td></tr><tr><td align="center">接口隔离原则（ISP）</td><td align="center">使用多个专门接口，不使用单一的总接口</td><td align="center">7</td></tr></tbody></table><ul><li>类的职责<ol><li>数据职责—-》通过属性实现</li><li>行为职责—-》通过方法实现</li></ol></li></ul><h2 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h2><ul><li>如 类 A 负责两个不同职责：职责 1，职责 2。职责1的变动，可能会影响职责2的执行。</li></ul><div class="note info">            <p>🎯 本文为个人学习笔记，若有错误之处，请在下方留言。将会及时修正。</p>          </div><div class="note danger">            <p>🚥🍀  ~ · · · 未完，更新ING · · · ~</p>          </div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> 设计模式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>UML之类图关系</title>
+      <link href="/2020/08/09/UMLNote/"/>
+      <url>/2020/08/09/UMLNote/</url>
+      
+        <content type="html"><![CDATA[<div class="note primary no-icon">                      </div><h1 id="UML-Unified-Mode-Language-统一建模语言"><a href="#UML-Unified-Mode-Language-统一建模语言" class="headerlink" title="UML(Unified Mode Language)统一建模语言"></a>UML(Unified Mode Language)统一建模语言</h1><h1 id="要素"><a href="#要素" class="headerlink" title="要素"></a>要素</h1><ul><li>事物</li><li>关系</li><li>图</li></ul><h1 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h1><ul><li><p>描述系统中类（对象）与类（对象）之间的各种静态关系。</p></li><li><p>说明：UML有多种类型的图，因为我在学习设计模式，所以这里主要讲类图</p></li></ul><h2 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h2><table><thead><tr><th align="center">关系名</th><th align="center">图标</th><th align="left">描述</th></tr></thead><tbody><tr><td align="center">依赖（使用）</td><td align="center"><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/UML/image-20200809215838518.png" alt="image-20200809215838518"></td><td align="left">普通箭头 + 虚线，指向被使用者</td></tr><tr><td align="center">关联（协作）</td><td align="center"><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/UML/image-20200809221230809.png" alt="image-20200809221230809"></td><td align="left">普通箭头 + 实心线，指向被拥有者</td></tr><tr><td align="center">泛化（继承）</td><td align="center"><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/UML/image-20200809215714144.png" alt="image-20200809215714144"></td><td align="left">三角箭头 + 实线，箭头指向父类</td></tr><tr><td align="center">实现</td><td align="center"><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/UML/image-20200809215639805.png" alt="image-20200809215639805"></td><td align="left">三角箭头 + 虚线，箭头指向接口</td></tr><tr><td align="center">聚合</td><td align="center"><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/UML/image-20200809215556167.png" alt="image-20200809215556167"></td><td align="left">空心菱形 + 实心线，菱形指向整体</td></tr><tr><td align="center">组合</td><td align="center"><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/UML/image-20200809220439873.png" alt="image-20200809220439873"></td><td align="left">实心菱形 + 实线，菱形指向整体</td></tr></tbody></table><table><thead><tr><th align="center">关系名</th><th align="center">定义</th></tr></thead><tbody><tr><td align="center">依赖</td><td align="center">使用的关系，某个类使用另一个类的对象。</td></tr><tr><td align="center">关联</td><td align="center">拥有的关系，一个类知道另一个类的属性和方法；如：老师与学生。关联既有双向的，也有单向的。双向的可以用两个箭头或者无箭头表示，单向的用一个箭头。</td></tr><tr><td align="center">实现</td><td align="center">类与接口的关系，表示类是接口的实现。</td></tr><tr><td align="center">聚合</td><td align="center">整体与部分的关系，且部分可以离开整体而单独存在。如车和轮胎，轮胎离开车仍然可以存在。</td></tr><tr><td align="center">组合</td><td align="center">整体与部分的关系，但部分不能离开整体而单独存在。</td></tr><tr><td align="center">泛化</td><td align="center">一种继承关系,它指定了子类如何特化父类的所有特征和行为。例如：老虎是动物的一种。</td></tr></tbody></table><p>强- - - &gt; 弱 顺序：</p><p>*<em>泛化  =  实现  &gt;  组合   &gt;  聚合  &gt;  关联  &gt;  依赖  *</em></p><h3 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h3><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/UML/timg.jpg" alt="timg"></p><div class="note info">            <p>🎯 本文为个人学习笔记，若有错误之处，请在下方留言。将会及时修正。</p>          </div><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/tianhai110/article/details/6339565" target="_blank" rel="noopener">UML类图几种关系的总结</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> UML </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MarkDown 基本语法</title>
       <link href="/2020/08/08/markDownNote/"/>
       <url>/2020/08/08/markDownNote/</url>
