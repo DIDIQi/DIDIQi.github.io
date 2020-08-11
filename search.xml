@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>JNDI 简述</title>
+      <link href="/2020/08/11/JNDINote/"/>
+      <url>/2020/08/11/JNDINote/</url>
+      
+        <content type="html"><![CDATA[<div class="note primary no-icon">                      </div><h1 id="什么是JNDI"><a href="#什么是JNDI" class="headerlink" title="什么是JNDI"></a>什么是JNDI</h1><p>JNDI： Java Naming And Directory Interface，java命名和目录接口。</p><h2 id="JDBC-amp-JNDI"><a href="#JDBC-amp-JNDI" class="headerlink" title="JDBC &amp; JNDI"></a>JDBC &amp; JNDI</h2><h3 id="JDBC："><a href="#JDBC：" class="headerlink" title="JDBC："></a>JDBC：</h3><p>​    程序员通过java调用API，<strong>亲自</strong>连接、操作和释放数据库资源。所以开发人员每次连接都需要关心数据库的驱动信息。如：URL等。而且操作有较强的耦合性，如每次的连接释放操作。JDBC操作的步骤：</p><pre><code>1.  加载驱动程序2.   连接数据库3.  操作数据库4.  关闭数据库，释放连接</code></pre><h3 id="JNDI："><a href="#JNDI：" class="headerlink" title="JNDI："></a>JNDI：</h3><p>​    更灵活，把所有数据库配置和管理都交给服务器容器来做。JNDI通过两个核心功能：1、命名服务；2、目录服务。来管理应用与数据库的连接。外部程序通过对象的名称查找对象资源并使用资源。</p><p>首先JDNI连接数据库时，不是直接向数据库发送请求，而是通过应用服务器（如Tomcat）根据用户先前配置好的驱动信息.xml 文件来连接数据库。这样就体现了两个核心功能：</p><ul><li><p>命名服务：在开发人员连接数据库时，通过使用配置文件中的连接名，就可映射到一个相应的数据库驱动信息，也就是一个对象。</p></li><li><p>目录服务：当管理的对象过多，可以根据不同特征把对象进行分类即目录服务，方便管理。</p></li></ul><h3 id="数据源DataSourse-amp-JNDI"><a href="#数据源DataSourse-amp-JNDI" class="headerlink" title="数据源DataSourse &amp; JNDI"></a>数据源DataSourse &amp; JNDI</h3><p>数据源DataSource是JNDI资源的一种，就是将“DataSource”字符串名称与真正的DataSource对象绑定起来，方便获取。</p><h3 id="数据源与连接池"><a href="#数据源与连接池" class="headerlink" title="数据源与连接池"></a>数据源与连接池</h3><h4 id="数据源"><a href="#数据源" class="headerlink" title="数据源"></a>数据源</h4><p>数据源是一个抽象概念。表示数据库的连接。</p><p>如果用户希望建立一个数据库连接，通过查询在JNDI服务中的数据源，可以从数据源中获取相应的数据库连接。这样用户就只需要提供一个逻辑名称（Logic Name），而不是数据库登录的具体细节。</p><h4 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h4><p>数据库提前创建好连接对象。当需要访问数据库时，只需要从数据库连接池中获取空闲的数据库连接，当程序访问数据库结束时，数据库连接会放回数据库连接池中。</p><p>ps：关闭连接对象并不会关闭命名服务本身,而是归还资源。</p><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/JNDI/timg.jpg" alt="timg"></p><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/JNDI/JNDI.jpg" alt="JNDI"></p><p>这里涉及到Tomcat的内容，可以根据这两张图，清楚知道JNDI、DataSourse、connection pool所处位置和关系。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Spring 配置Druid数据源</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这里是通过set方法依赖注入的，不是.xml方式。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建数据源</span></span><br><span class="line">DruidDataSource dataSource = <span class="keyword">new</span> DruidDataSource();</span><br><span class="line"><span class="comment">//设置数据库连接参数    </span></span><br><span class="line">dataSource.setDriverClassName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line">dataSource.setUrl(<span class="string">"jdbc:mysql://localhost:3306/test"</span>);    </span><br><span class="line">dataSource.setUsername(<span class="string">"root"</span>);    </span><br><span class="line">dataSource.setPassword(<span class="string">"root"</span>);    </span><br><span class="line"><span class="comment">//获得连接对象    </span></span><br><span class="line">Connection connection = dataSource.getConnection();    </span><br><span class="line">System.out.println(connection);</span><br></pre></td></tr></table></figure><div class="note info">            <p>🎯 本文为个人学习笔记，若有错误之处，请在下方留言。将会及时修正。</p>          </div><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/ibigboy/article/details/84309064" target="_blank" rel="noopener">jndi和jdbc的区别-个人理解</a></p><p><a href="https://www.cnblogs.com/zizi-tothemoon/p/9294246.html" target="_blank" rel="noopener">JNDI和JDBC的区别和联系及其使用方法</a></p><p><a href="https://blog.csdn.net/wn084/article/details/80729230" target="_blank" rel="noopener">JNDI到底是什么？</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> JNDI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JAVA笔记</title>
       <link href="/2020/08/09/JavaNote/"/>
       <url>/2020/08/09/JavaNote/</url>
