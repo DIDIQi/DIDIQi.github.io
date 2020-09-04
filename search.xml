@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>转发与重定向</title>
+      <link href="/2020/09/04/reSend/"/>
+      <url>/2020/09/04/reSend/</url>
+      
+        <content type="html"><![CDATA[<div class="note primary no-icon">                      </div><h1 id="转发和重定向区别详解"><a href="#转发和重定向区别详解" class="headerlink" title="转发和重定向区别详解"></a>转发和重定向区别详解</h1><p>​    作为一名java web开发的程序员，在使用servlet/jsp的时候，我们必须要知道实现页面跳转的两种方式的区别和联系：即转发和重定向的区别。</p><p>   1、request.getRequestDispatcher().forward()方法,只能将请求转发给同一个WEB应用中的组件；而response.sendRedirect() 方法不仅可以重定向到当前应用程序中的其他资源，还可以重定向到同一个站点上的其他应用程序中的资源，甚至是使用绝对URL重定向到其他站点的资源。</p><p>如果传递给response.sendRedirect()方法的相对URL以“/”开头，它是相对于整个WEB站点的根目录；如果创建request.getRequestDispatcher()对象时指定的相对URL以“/”开头，它是相对于当前WEB应用程序的根目录。</p><p>   2、重定向访问过程结束后，浏览器地址栏中显示的URL会发生改变，由初始的URL地址变成重定向的目标URL；请求转发过程结束后，浏览器地址栏保持初始的URL地址不变。</p><p>   3、HttpServletResponse.sendRedirect方法对浏览器的请求直接作出响应，响应的结果就是告诉浏览器去重新发出对另外一个URL的访问请求，这个过程好比有个绰号叫“浏览器”的人写信找张三借钱，张三回信说没有钱，让“浏览器”去找李四借，并将李四现在的通信地址告诉给了“浏览器”。于是，“浏览器”又按张三提供通信地址给李四写信借钱，李四收到信后就把钱汇给了“浏览器”。</p><p>由此可见，重定向的时候，“浏览器”一共发出了两封信和收到了两次回复，“浏览器”也知道他借到的钱出自李四之手。</p><p>request.getRequestDispatcher().forward()方法在服务器端内部将请求转发给另外一个资源，浏览器只知道发出了请求并得到了响应结果，并不知道在服务器程序内部发生了转发行为。这个过程好比绰号叫“浏览器”的人写信找张三借钱，张三没有钱，于是张三找李四借了一些钱，甚至还可以加上自己的一些钱，然后再将这些钱汇给了“浏览器”。</p><p>由此可见，转发的时候，“浏览器”只发 出了一封信和收到了一次回复，他只知道从张三那里借到了钱，并不知道有一部分钱出自李四之手。</p><p>​    4、request.getRequestDispatcher().forward()方法的调用者与被调用者之间共享相同的request对象和response对象，它们属于同一个访问请求和响应过程；</p><p>而response.sendRedirect()方法调用者与被调用者使用各自的request对象和response对象，它们属于两个独立的访问请求和响应过程。对于同一个WEB应用程序的内部资源之间的跳转，特别是跳转之前要对请求进行一些前期预处理，并要使用HttpServletRequest.setAttribute方法传递预处理结果，那就应该使用request.getRequestDispatcher().forward()方法。不同WEB应用程序之间的重定向，特别是要重定向到另外一个WEB站点上的资源的情况，都应该使用response.sendRedirect()方法。</p><p>​    5、无论是request.getRequestDispatcher().forward()方法，还是response.sendRedirect()方法，在调用它们之前，都不能有内容已经被实际输出到了客户端。如果缓冲区中已经有了一些内容，这些内容将被从缓冲区中。</p><p>以上五点的论述来源于：<a href="https://blog.csdn.net/xybelieve1990/article/details/49486751" target="_blank" rel="noopener">点击查看原文论述</a></p><h2 id="转发和重定向的图解"><a href="#转发和重定向的图解" class="headerlink" title="转发和重定向的图解"></a>转发和重定向的图解</h2><p><img src= "https://wx2.sbimg.cn/2020/07/02/2ZPCd.gif" data-src="https://picbed-1258993773.cos.ap-nanjing.myqcloud.com/gallery/reSend/process.png" alt="img"></p><h2 id="两种跳转获得对象的方式"><a href="#两种跳转获得对象的方式" class="headerlink" title="两种跳转获得对象的方式"></a>两种跳转获得对象的方式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获得转发对象getRequestDispatcher()</span></span><br><span class="line">HttpServletRequest(httpServletRequest).getRequestDispatcher</span><br><span class="line">ServletContext.getRequestDispatcher();</span><br><span class="line"><span class="comment">//获得重定向对象sendRedirect()</span></span><br><span class="line">HttpServletResponse(httpServletResponse).sendRedirect();</span><br></pre></td></tr></table></figure><h2 id="转发和跳转的小结"><a href="#转发和跳转的小结" class="headerlink" title="转发和跳转的小结"></a>转发和跳转的小结</h2><p>   1、转发使用的是getRequestDispatcher()方法;重定向使用的是sendRedirect();</p><p>   2、转发：浏览器URL的地址栏不变。重定向：浏览器URL的地址栏改变；</p><p>   3、转发是服务器行为，重定向是客户端行为；</p><p>   4、转发是浏览器只做了一次访问请求。重定向是浏览器做了至少两次的访问请求；</p><p>   5、转发2次跳转之间传输的信息不会丢失，重定向2次跳转之间传输的信息会丢失（request范围）。</p><h2 id="转发和重定向的选择"><a href="#转发和重定向的选择" class="headerlink" title="转发和重定向的选择"></a>转发和重定向的选择</h2><p>   1、重定向的速度比转发慢，因为浏览器还得发出一个新的请求，如果在使用转发和重定向都无所谓的时候建议使用转发。</p><p>   2、因为转发只能访问当前WEB的应用程序，所以不同WEB应用程序之间的访问，特别是要访问到另外一个WEB站点上的资源的情况，这个时候就只能使用重定向了。</p><h2 id="转发和重定向的应用场景"><a href="#转发和重定向的应用场景" class="headerlink" title="转发和重定向的应用场景"></a>转发和重定向的应用场景</h2><p>​    在上面我已经提到了，转发是要比重定向快，因为重定向需要经过客户端，而转发没有。有时候，采用重定向会更好，若需要重定向到另外一个外部网站，则无法使用转发。另外，重定向还有一个应用场景：避免在用户重新加载页面时两次调用相同的动作。</p><p>​    例如，当提交产品表单的时候，执行保存的方法将会被调用，并执行相应的动作；这在一个真实的应用程序中，很有可能将表单中的所有产品信息加入到数据库中。但是如果在提交表单后，重新加载页面，执行保存的方法就很有可能再次被调用。同样的产品信息就将可能再次被添加，为了避免这种情况，提交表单后，你可以将用户重定向到一个不同的页面，这样的话，这个网页任意重新加载都没有副作用，因为重定向时会清除两次跳转之间的传输信息（request范围）；</p><p>​    但是，使用重定向不太方便的地方是，使用它无法将值轻松地传递给目标页面。而采用转发，则可以简单地将属性添加到Model,使得目标视图可以轻松访问。由于重定向经过客户端，所以Model中的一切都会在重定向时丢失。但幸运的是，在Spring3.1版本以后，我们可以通过Flash属性，解决重定向时传值丢失的问题。</p><p>​    要使用Flash属性，必须在Spring MVC的配置文件中添加一个&lt;annotation-driven/&gt;。然后，还必须再方法上添加一个新的参数类型：org.springframework.web.servlet.mvc.support.RedirectAttributes。</p><p>​    如下所示：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"saveProduct"</span>,method=RequestMethod.POST)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">saveProduct</span><span class="params">(ProductForm productForm,RedirectAttributes redirectAttributes)</span></span></span><br><span class="line"><span class="function">     <span class="comment">//执行产品保存的业务逻辑等</span></span></span><br><span class="line"><span class="function">     <span class="comment">//传递参数</span></span></span><br><span class="line"><span class="function">       redirectAttributes.<span class="title">addFlashAttribute</span><span class="params">(<span class="string">"message"</span>,<span class="string">"The product is saved successfully"</span>)</span></span>;</span><br><span class="line">     <span class="comment">//执行重定向</span></span><br><span class="line">      <span class="keyword">return</span> <span class="string">"redirect:/……"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><div class="note info">            <p>🎯 本文为个人学习笔记，若有错误之处，请在下方留言。将会及时修正。</p>          </div><h1 id="转发自"><a href="#转发自" class="headerlink" title="转发自"></a>转发自</h1><p><a href="https://blog.csdn.net/liubin5620/article/details/79922692" target="_blank" rel="noopener">页面跳转的两种方式(转发和重定向)区别及应用场景分析</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 转发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Web </tag>
+            
+            <tag> 转发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Mybatis 简易笔记</title>
       <link href="/2020/09/03/mybatisNote/"/>
       <url>/2020/09/03/mybatisNote/</url>
